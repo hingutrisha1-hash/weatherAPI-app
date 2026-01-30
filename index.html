@@ -3,58 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Weather API App</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Weather Demo</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="app" id="app">
-    <header class="header">
-      <h1 class="title">Weather</h1>
-      <form id="searchForm" class="search" aria-label="Search for city weather">
-        <label for="cityInput" class="visually-hidden">City name</label>
-        <input id="cityInput" name="city" type="search" placeholder="Enter city (e.g. London)" autocomplete="off" required />
-        <button type="submit" id="searchBtn" class="btn">Search</button>
-        <button type="button" id="geoBtn" class="btn" title="Use current location">Use my location</button>
-        <div class="units">
-          <label>
-            <input type="radio" name="units" value="metric" checked /> °C
-          </label>
-          <label>
-            <input type="radio" name="units" value="imperial" /> °F
-          </label>
-        </div>
+  <main class="container">
+    <h1>Weather Demo</h1>
+
+    <div id="controls" class="card">
+      <button id="btn-get-weather">Get weather for my location</button>
+      <div class="or">OR</div>
+      <form id="manual-form">
+        <input id="city-input" placeholder="Enter city name or postal code" />
+        <button type="submit">Search</button>
       </form>
-    </header>
+      <div id="hint" class="hint"></div>
+    </div>
 
-    <section id="status" class="status" aria-live="polite"></section>
+    <div id="result" class="card hidden">
+      <h2 id="location-name"></h2>
+      <div id="weather-summary"></div>
+      <ul id="weather-details"></ul>
+    </div>
 
-    <section id="weatherCard" class="card hidden" aria-hidden="true">
-      <div class="card-main">
-        <img id="weatherIcon" alt="" class="icon" />
-        <div>
-          <h2 id="location" class="location"></h2>
-          <p id="description" class="description"></p>
-        </div>
-      </div>
-
-      <div class="card-details">
-        <div class="temp">
-          <span id="temp" class="temp-value"></span>
-          <span id="feels" class="temp-feels"></span>
-        </div>
-        <ul class="stats">
-          <li>Humidity: <span id="humidity"></span>%</li>
-          <li>Wind: <span id="wind"></span> m/s</li>
-          <li>Pressure: <span id="pressure"></span> hPa</li>
-        </ul>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <small>Powered by OpenWeatherMap. Replace API usage with your provider as needed.</small>
-    </footer>
+    <div id="message" class="message hidden"></div>
   </main>
 
-  <script src="script.js" defer></script>
+  <script src="app.js"></script>
 </body>
 </html>
